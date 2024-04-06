@@ -1,0 +1,52 @@
+<div class = "container">
+    <div class = "col-md-12">
+        <h3>{{ tituloComp }}</h3>
+        <button class="btn btn-outline-primary btn-sm" routerLink="/listarCurso">
+            Voltar
+        </button>
+        <div *ngIf = "cadastroUnico != 0; else semDados">
+            <table class = "table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope = "col">Id do Curso</th>
+                        <th scope = "col">Nome</th>
+                        <th scope = "col">Mensalidade</th>
+                        <th scope = "col">Id do Estudante</th>
+                        <th scope = "col">RA</th>
+                        <th scope = "col">Ação a Executar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope = "row">
+                        <td>{{ cadastroUnico.cursoId }}</td>
+                        <td>{{ cadastroUnico.cursoNome }}</td>
+                        <td>{{ cadastroUnico.cursoMensalidade }}</td>
+                        <td>{{ cadastroUnico.estudanteId }}</td>
+                        <td>{{ cadastroUnico.estudanteRA }}</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm" routerLink = "/atualizarCurso/{{cadastroUnico.cursoId}}"> 
+                                Atualizar
+                            </button>
+
+                            <button class="btn btn-outline-danger btn-sm" (click)="excluirCadastroCurso(cadastroUnico.cursoId)">
+                                Excluir
+                            </button>
+
+                            <button class="btn btn-outline-success btn-sm" routerLink="/inserirCurso">
+                                Inserir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            <ng-template #semDados>
+                <div class="text-center">
+                    Nenhum registro foi encontrado. Crie um novo! Clique no botão abaixo...
+                    <button class="btn btn-outline-primary" routerLink = "/inserirCurso">
+                        Criar Registro
+                    </button>
+                </div>
+            </ng-template>
+    </div>
+</div>

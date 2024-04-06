@@ -1,0 +1,61 @@
+﻿@* Estabelecer a relação entre view e model *@
+
+@model IEnumerable<Reserva>
+
+@{
+    ViewData["Title"] = "Lista de Reservas";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<a asp-action="AddReserva" class="btn btn-sm btn-primary">
+    Adicionar
+</a>
+
+<a asp-action="GetReserva" class="btn btn-sm btn-primary">
+    Detalhes reservas
+</a>
+
+<table class="table table-sm table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Local de partida</th>
+            <th>Local de chegada</th>
+            <th>Data de Chegada</th>
+            <th>Data de Partida</th>
+            <th>Endereço de Hospedagem</th>
+            <th>Atualizar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registro in Model)
+        {
+            <tr>
+                <td>@registro.Id</td>
+                <td>@registro.Nome</td>
+                <td>@registro.Sobrenome</td>
+                <td>@registro.PontoA</td>
+                <td>@registro.PontoB</td>
+                <td>@registro.DataChegada</td>
+                <td>@registro.DataPartida</td>
+                <td>@registro.EnderecoHospedagem</td>
+                <td>
+                    <a
+                        asp-action="UpdateReserva"
+                        asp-route-idRegistro="@registro.Id"
+                    ><img class="img" src="~/img/Update.png"><img/></a>
+                </td>
+                <td>
+                    <form method="post">
+                        <input type="hidden" value="@registro.Id" name="idRegistro"/>
+                        <button type="submit"><img class="img" src="~/img/Delete.png"><img/></button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+﻿@model Reserva
+
+@{
+    ViewData["Title"] = "Inserir Registro";
+}
+
+<a asp-action="Index" class="btn btn-sm btn-secondary">Lista de Dados</a><h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Nome">Nome</label>
+        <input name="Nome" type="text" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="Sobrenome">Sobrenome</label>
+        <input name="Sobrenome" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="PontoA">Local de Partida</label>
+        <input name="PontoA" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="PontoB">Local de Chegada</label>
+        <input name="PontoB" type="text" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="DataChegada">Data de Chegada</label>
+        <input name="DataChegada" type="date" class="form-control" />
+    </div>
+
+    <div>
+        <label for="DataPartida">Data de Partida</label>
+        <input name="DataPartida" type="date" class="form-control" />
+    </div>
+
+    <div>
+        <label for="EnderecoHospedagem">Endereço de Hospedagem</label>
+        <input name="EnderecoHospedagem" type="text" class="form-control" placeholder="Rua Carlos, 2331 - Vila Primavera, Brasil - SP - São Paulo"/>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-sm btn-primary">
+            Inserir
+        </button>
+    </div>
+</form>
+
+<h3></h3>
+
+@if (Model != null)
+{
+    <table class="table table-sm table-bordered m-2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Local de partida</th>
+                <th>Local de chegada</th>
+                <th>Data de Chegada</th>
+                <th>Data de Partida</th>
+                <th>Endereço de Hospedagem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.Nome</td>
+                <td>@Model.Sobrenome</td>
+                <td>@Model.PontoA<td>
+                <td>@Model.PontoB</td>
+                <td>@Model.DataChegada</td>
+                <td>@Model.DataPartida</td>
+                <td>@Model.EnderecoHospedagem</td> 
+            </tr>
+        </tbody>
+    </table>
+}

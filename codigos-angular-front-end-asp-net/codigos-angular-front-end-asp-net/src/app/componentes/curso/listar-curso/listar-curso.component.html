@@ -1,0 +1,52 @@
+<div class = "container">
+    <div class = "col-md-12">
+        <h3>{{ tituloComp }}</h3>
+        <div *ngIf = "listaDeCursos != 0; else vazioDeDados">
+            <table class = "table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope = "col">Id Curso</th>
+                        <th scope = "col">Nome Curso</th>
+                        <th scope = "col">Mensalidade curso</th>
+                        <th scope = "col">Id do estudante</th>
+                        <th scope = "col">RA</th>
+                        <th scope = "col">Ação a Executar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope = "row" *ngFor = "let itens of listaDeCursos">
+                        <td>{{ itens.cursoId }}</td>
+                        <td>{{ itens.cursoNome }}</td>
+                        <td>{{ itens.cursoMensalidade }}</td>
+                        <td>{{ itens.estudanteId }}</td>
+                        <td>{{ itens.estudanteRA }}</td>
+                        <td>
+                            <button class = "btn btn-outline-primary btn-sm" routerLink = "/atualizarCurso/{{ itens.cursoId }}">
+                                Atualizar
+                            </button>
+
+                            <button class = "btn btn-outline-secondary btn-sm" routerLink = "/detalheCurso/{{ itens.cursoId }}">
+                                Detalhes
+                            </button>
+
+                            <button class = "btn btn-outline-danger btn-sm" (click) = "excluirCadastroCurso(itens.cursoId)">
+                                Excluir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <ng-template #vazioDeDados>
+        <div class = "sem-dados">
+            <p>
+                Cadastros não encontrados! Por favor, insira ao menos um.
+            </p>
+        </div>
+        <button class = "btn btn-outline-primary" routerLink = "/inserirCurso">
+            Inserir Cadastro
+        </button>
+    </ng-template>
+</div>

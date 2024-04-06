@@ -1,0 +1,58 @@
+<div class = "container">
+    <div class = "col-md-12">
+        <h3>{{ tituloComp }}</h3>
+        <button class="btn btn-outline-primary btn-sm" routerLink="/listar">
+            Voltar
+        </button>
+        <div *ngIf = "cadastroUnico != 0; else semDados">
+            <table class = "table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope = "col">Id do Estudante</th>
+                        <th scope = "col">Nome</th>
+                        <th scope = "col">Sobrenome</th>
+                        <th scope = "col">RA</th>
+                        <th scope = "col">Email</th>
+                        <th scope = "col">Idade</th>
+                        <th scope = "col">Fone</th>
+                        <th scope = "col">Genero</th>
+                        <th scope = "col">Ação a Executar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope = "row">
+                        <td>{{ cadastroUnico.estudanteId }}</td>
+                        <td>{{ cadastroUnico.estudanteNome }}</td>
+                        <td>{{ cadastroUnico.estudanteSobrenome }}</td>
+                        <td>{{ cadastroUnico.estudanteRA }}</td>
+                        <td>{{ cadastroUnico.estudanteEmail }}</td>
+                        <td>{{ cadastroUnico.estudanteIdade }}</td>
+                        <td>{{ cadastroUnico.estudanteFone }}</td>
+                        <td>{{ cadastroUnico.estudanteGenero }}</td>
+                        <td>
+                            <button class="btn btn-outline-primary btn-sm" routerLink = "/atualizar/{{cadastroUnico.estudanteId}}"> 
+                                Atualizar
+                            </button>
+
+                            <button class="btn btn-outline-danger btn-sm" (click)="excluirCadastroEstudante(cadastroUnico.estudanteId)">
+                                Excluir
+                            </button>
+
+                            <button class="btn btn-outline-success btn-sm" routerLink="/inserir">
+                                Inserir
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+            <ng-template #semDados>
+                <div class="text-center">
+                    Nenhum registro foi encontrado. Crie um novo! Clique no botão abaixo...
+                    <button class="btn btn-outline-primary" routerLink = "/inserir">
+                        Criar Registro
+                    </button>
+                </div>
+            </ng-template>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class = "container">
+    <div class = "col-md-12">
+        <h3>{{ tituloComp }}</h3>
+        <div class = "form-group">
+            <input type = "text" [(ngModel)] = "cadastroInserido.cursoNome" placeholder = "Informe o nome do curso" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "number" [(ngModel)] = "cadastroInserido.cursoMensalidade" placeholder = "Informe a mensalidade do curso" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "number" [(ngModel)] = "cadastroInserido.estudanteId" placeholder = "Informe o Id do estudante" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "number" [(ngModel)] = "cadastroInserido.estudanteRA" placeholder = "Informe seu RA" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <button class = "btn btn-success btn-lg panel-body" (click) =  inserirUmCadastro()>
+                Inserir Cadastro
+            </button>
+        </div>
+    </div>
+</div>

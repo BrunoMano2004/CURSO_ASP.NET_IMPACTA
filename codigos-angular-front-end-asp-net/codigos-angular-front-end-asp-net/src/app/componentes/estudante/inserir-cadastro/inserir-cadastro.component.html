@@ -1,0 +1,39 @@
+<div class = "container">
+    <div class = "col-md-12">
+        <h3>{{ tituloComp }}</h3>
+        <!-- definição do fomulario "informal"-->
+        <div class = "form-group">
+            <input type = "text" [(ngModel)] = "cadastroInserido.estudanteNome" placeholder = "Informe seu nome" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "text" [(ngModel)] = "cadastroInserido.estudanteSobrenome" placeholder = "Informe seu sobrenome" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "number" [(ngModel)] = "cadastroInserido.estudanteRA" placeholder = "Informe seu RA" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "text" [(ngModel)] = "cadastroInserido.estudanteEmail" placeholder = "Informe seu email" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "number" [(ngModel)] = "cadastroInserido.estudanteIdade" placeholder = "Informe sua idade" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "text" [(ngModel)] = "cadastroInserido.estudanteFone" placeholder = "Informe seu telefone" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <input type = "text" [(ngModel)] = "cadastroInserido.estudanteGenero" placeholder = "Informe o genero" class = "form-control" />
+        </div>
+
+        <div class = "form-group">
+            <button class = "btn btn-success btn-lg panel-body" (click) =  inserirUmCadastro()>
+                Inserir Cadastro
+            </button>
+        </div>
+    </div>
+</div>
